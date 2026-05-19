@@ -13,20 +13,29 @@ public class PlayerMovementScript : MonoBehaviour
     public LayerMask groundmask;
     bool isonground;
 
+    public float sprintmulti;
+    bool cansprint;
+    public float maxsprinttimer;
+    public float sprintremaining;
+
     
 
-
+    void Start()
+    {
+        sprintremaining = maxsprinttimer;
+    }
     // Update is called once per frame
     void Update()
     {
-        
+
+        Sprintingcode();
         
 
         isonground = Physics.CheckSphere(groundcheck.position, grounddistance,groundmask);
 
         if(isonground && velocity.y <0)
         {
-            velocity.y = -1f;
+            //velocity.y = -10f;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -35,8 +44,38 @@ public class PlayerMovementScript : MonoBehaviour
         Vector3 movement = POV.transform.right * x + POV.transform.forward * z;
 
         playercontroller.Move(movement*speedmuti*Time.deltaTime);
-
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y = gravity;
+        //velocity.y += gravity * Time.deltaTime;
         playercontroller.Move(velocity * Time.deltaTime);
+    }
+
+    void Sprintingcode()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (sprintremaining >= 0)
+            {
+                cansprint = true;
+            }
+        }
+        if (cansprint == true)
+        {
+            sprintmulti = 2;
+            sprintremaining -= Time.deltaTime;
+            if (sprintremaining < 0)
+            {
+                cansprint = false;
+                sprintmulti = 1;
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            cansprint = false;
+            sprintmulti = 1;
+        }
+        if (cansprint == false && sprintremaining <= 5)
+        {
+            sprintremaining += Time.deltaTime;
+        }
     }
 }
