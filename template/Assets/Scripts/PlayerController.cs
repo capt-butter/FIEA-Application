@@ -14,11 +14,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector2 cameraInput;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
-    {
-        controller = GetComponent<CharacterController>();
-    }
+    
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -44,15 +40,16 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-
-
     public void CameraControl(InputAction.CallbackContext context)
     {
         cameraInput = context.ReadValue<Vector2>();
     }
 
 
-
+    void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
 
     // Update is called once per frame
