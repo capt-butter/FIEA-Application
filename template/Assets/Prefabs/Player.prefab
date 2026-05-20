@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4256773140003698762}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Players
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,9 +231,9 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/tag[/Mouse/press,/XInputControllerWindows/buttonNorth,/SwitchProControllerHID/buttonNorth]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4256773140003698762}
-        m_TargetAssemblyTypeName: TaggingScript, Assembly-CSharp
-        m_MethodName: tagcheck
+      - m_Target: {fileID: 703042574495431013}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: StartRound
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
