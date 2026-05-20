@@ -193,7 +193,19 @@ MonoBehaviour:
     m_ActionId: ad997699-86e7-416c-a370-201b6be0925f
     m_ActionName: 'Gameplay/Camera[/Mouse/delta,/XInputControllerWindows/rightStick,/SwitchProControllerHID/rightStick]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 703042574495431013}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Sprint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 40a9a1ac-881a-4b06-901b-a574f1191381
     m_ActionName: 'Gameplay/sprint[/Keyboard/shift,/XInputControllerWindows/leftStickPress,/SwitchProControllerHID/leftStickPress]'
   - m_PersistentCalls:
@@ -201,7 +213,19 @@ MonoBehaviour:
     m_ActionId: 2aff8e8a-4744-4b56-8b9e-8a34531b5990
     m_ActionName: 'Gameplay/crouch[/Keyboard/ctrl,/XInputControllerWindows/buttonWest,/SwitchProControllerHID/buttonWest]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 703042574495431013}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Tag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c5b23640-ee11-4fce-aa66-b5f77b949d19
     m_ActionName: 'Gameplay/tag[/Mouse/press,/XInputControllerWindows/buttonNorth,/SwitchProControllerHID/buttonNorth]'
   m_NeverAutoSwitchControlSchemes: 1
@@ -249,7 +273,6 @@ MonoBehaviour:
   speed: 5
   jumpHeight: 2
   gravity: -9.8
-  label: {fileID: 2970053745679266819}
 --- !u!1 &1170984785858973300
 GameObject:
   m_ObjectHideFlags: 0

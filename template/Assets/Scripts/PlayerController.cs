@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector2 cameraInput;
 
+
+    double tagcooldown;
+
     
 
     public void Move(InputAction.CallbackContext context)
@@ -28,9 +31,22 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
+
+    public void ProcessSprint(ref InputInteractionContext Context)
+    {
+        
+    }
     public void Sprint(InputAction.CallbackContext context)
     {
-
+        if (context.performed)
+        {
+            speed = 10f;
+        }
+        if (context.canceled)
+        {
+            speed = 5f;
+        }
+        
     }
     public void Crouch(InputAction.CallbackContext context)
     {
@@ -38,7 +54,12 @@ public class PlayerController : MonoBehaviour
     }
     public void Tag(InputAction.CallbackContext context)
     {
-
+        double timesinceattempted;
+        if(context.performed)
+        {
+            timesinceattempted = context.time;
+            Debug.Log(timesinceattempted);
+        }
     }
     public void CameraControl(InputAction.CallbackContext context)
     {
@@ -60,6 +81,7 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        Debug.Log(cameraInput);
+        //gameObject.transform.Rotate(0,cameraInput.x,0);
+        //Debug.Log(gameObject.transform.rotation);
     }
 }
