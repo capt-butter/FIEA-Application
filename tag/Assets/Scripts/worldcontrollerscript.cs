@@ -8,7 +8,7 @@ public class worldcontrollerscript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        initialtagger();
     }
 
     // Update is called once per frame
@@ -42,5 +42,10 @@ public class worldcontrollerscript : MonoBehaviour
                 Debug.Log( roundloser.name + " was the last tagger");
             }
         }
+    }
+
+    void initialtagger()
+    {
+
     }
 }

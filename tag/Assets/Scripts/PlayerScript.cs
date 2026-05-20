@@ -46,6 +46,7 @@ public class PlayerScript : MonoBehaviour
             if (test.TryGetComponent<PlayerScript>(out PlayerScript TaggedPlayer))
             {
                 TaggedPlayer.setrole();
+                gameObject.tag = "Not It";
             }
             else
             {
@@ -71,6 +72,7 @@ public class PlayerScript : MonoBehaviour
     }
     void setrole()
     {
-
+        gameObject.tag = "CurrentTagger";
+        Debug.Log("changed the tagger");
     }
 }

@@ -29,7 +29,7 @@ public class PlayerMovementScript : MonoBehaviour
     {
 
         Sprintingcode();
-        
+        CrouchingCode();
 
         isonground = Physics.CheckSphere(groundcheck.position, grounddistance,groundmask);
 
@@ -76,6 +76,19 @@ public class PlayerMovementScript : MonoBehaviour
         if (cansprint == false && sprintremaining <= 5)
         {
             sprintremaining += Time.deltaTime;
+        }
+    }
+
+    void CrouchingCode()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+
+            sprintmulti = 0.5f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            sprintmulti = 0.5f;
         }
     }
 }
