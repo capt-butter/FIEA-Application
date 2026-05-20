@@ -8,11 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private float gravity = -9.8f;
 
-    [SerializeField] private TextMeshProUGUI label;
 
     private CharacterController controller;
     private Vector2 moveInput;
     private Vector3 velocity;
+    private Vector2 cameraInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -32,11 +32,14 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
-
-    public void SetLabel(string label)
+    public void CameraControl(InputAction.CallbackContext context)
     {
-        this.label.text = label;
+        cameraInput = context.ReadValue<Vector2>();
     }
+
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -46,5 +49,6 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        Debug.Log(cameraInput);
     }
 }
