@@ -305,7 +305,7 @@
                 {
                     "name": "",
                     "id": "a73a3ac2-9af1-4c66-9e44-89707e3a8152",
-                    "path": "<Mouse>/press",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": ";WASD",

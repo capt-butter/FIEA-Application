@@ -129,9 +129,10 @@ GameObject:
   m_Component:
   - component: {fileID: 317219325}
   - component: {fileID: 317219324}
+  - component: {fileID: 317219326}
   m_Layer: 0
   m_Name: PlayerInputManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +196,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &317219326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317219322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec56fc24ff35884fb8b7f3c083e9019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  roundtime: 30
+  timeremaining: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

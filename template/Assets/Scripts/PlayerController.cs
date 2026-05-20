@@ -97,4 +97,9 @@ public class PlayerController : MonoBehaviour
         //gameObject.transform.Rotate(0,cameraInput.x,0);
         //Debug.Log(gameObject.transform.rotation);
     }
+
+    public void SetRole()
+    {
+
+    }
 }
