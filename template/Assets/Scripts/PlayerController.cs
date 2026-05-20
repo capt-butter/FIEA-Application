@@ -32,6 +32,20 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
+    public void Sprint(InputAction.CallbackContext context)
+    {
+
+    }
+    public void Crouch(InputAction.CallbackContext context)
+    {
+
+    }
+    public void Tag(InputAction.CallbackContext context)
+    {
+
+    }
+
+
     public void CameraControl(InputAction.CallbackContext context)
     {
         cameraInput = context.ReadValue<Vector2>();
