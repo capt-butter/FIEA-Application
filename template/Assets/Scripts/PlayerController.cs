@@ -52,6 +52,19 @@ public class PlayerController : MonoBehaviour
     {
 
     }
+    public void StartRound(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            GameObject RoundController;
+            GameStateController gameStateController;
+            RoundController = GameObject.FindGameObjectWithTag("GameController");
+            gameStateController = RoundController.GetComponent<GameStateController>();
+            gameStateController.StartRound();
+        }
+        
+        
+    }
     public void Tag(InputAction.CallbackContext context)
     {
         double timesinceattempted;
