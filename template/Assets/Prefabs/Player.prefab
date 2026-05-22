@@ -245,6 +245,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d020230c-b4c3-4e85-aca1-0d5660bc7461
     m_ActionName: 'Gameplay/roundstart[/Keyboard/backquote]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 703042574495431013}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: SprintTimeout
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 49307cdd-04f5-4bae-a4bb-2e8e10289a2b
+    m_ActionName: 'Gameplay/SprintHold[/Keyboard/shift]'
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -290,6 +306,8 @@ MonoBehaviour:
   speed: 5
   jumpHeight: 2
   gravity: -9.8
+  sprintlength: 5
+  sprintleft: 5
 --- !u!114 &4256773140003698762
 MonoBehaviour:
   m_ObjectHideFlags: 0

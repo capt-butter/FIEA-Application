@@ -34,7 +34,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "sprint",
+                    "name": "SprintToggle",
                     "type": "Button",
                     "id": "40a9a1ac-881a-4b06-901b-a574f1191381",
                     "expectedControlType": "",
@@ -67,6 +67,15 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SprintHold",
+                    "type": "Button",
+                    "id": "49307cdd-04f5-4bae-a4bb-2e8e10289a2b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold(duration=3)",
                     "initialStateCheck": false
                 }
             ],
@@ -254,7 +263,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "sprint",
+                    "action": "SprintToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -265,7 +274,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "sprint",
+                    "action": "SprintToggle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -343,6 +352,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "roundstart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c4b4171b-1abb-4e62-aae4-2861fd703f24",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SprintHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d754e3af-08f1-46b2-a491-13f4212ccd72",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SprintHold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

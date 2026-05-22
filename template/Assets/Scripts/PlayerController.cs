@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour
 
 
     double tagcooldown;
-
+    bool sprintingnow;
+    public float sprintlength;
+    public float sprintleft;
     
 
     public void Move(InputAction.CallbackContext context)
@@ -32,8 +34,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void ProcessSprint(ref InputInteractionContext Context)
+    public void SprintTimeout(InputAction.CallbackContext context)
     {
+        if (context.performed)
+        {
+            Debug.Log("sprint ran out");
+        }
+        if (context.canceled)
+        {
+            Debug.Log("sprint reset");
+        }
         
     }
     public void Sprint(InputAction.CallbackContext context)
@@ -41,10 +51,12 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             speed = 10f;
+            sprintingnow = true;
         }
         if (context.canceled)
         {
             speed = 5f;
+            sprintingnow = false;
         }
         
     }
@@ -83,6 +95,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        sprintleft = sprintlength;
     }
 
 
@@ -96,6 +109,30 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
         //gameObject.transform.Rotate(0,cameraInput.x,0);
         //Debug.Log(gameObject.transform.rotation);
+        sprintAntiSpam();
+        
+    }
+    void sprintAntiSpam()
+    {
+        if (sprintingnow == true)
+        {
+            if(sprintleft > 0)
+            {
+                sprintleft -= Time.deltaTime;
+            }
+            if (sprintleft < 0)
+            {
+                Debug.Log("out of spritn");
+                speed = 2f;
+            }
+        }
+        if (sprintingnow == false)
+        {
+            if (sprintleft <= sprintlength)
+            {
+                sprintleft += Time.deltaTime;
+            }
+        }
     }
 
     public void SetRole()

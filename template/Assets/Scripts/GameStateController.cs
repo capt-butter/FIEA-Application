@@ -53,8 +53,8 @@ public class GameStateController : MonoBehaviour
             {
                 roundactive = false;
                 Debug.Log("round is over");
-                //GameObject roundloser = GameObject.FindWithTag("CurrentTagger");
-                //Debug.Log(roundloser.name + " was the last tagger");
+                GameObject roundloser = GameObject.FindWithTag("CurrentTagger");
+                Debug.Log(roundloser.name + " was the last tagger");
                 foreach (var GameObject in PlayerChars)
                 {
                     GameObject.tag = "Player";
