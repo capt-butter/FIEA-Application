@@ -103,12 +103,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        controller.Move(move * speed * Time.deltaTime);
+        move = Vector3.ClampMagnitude(move, 1f);
+        if (move != Vector3.zero)
+        {
+            transform.forward = move;
+        }
+            
+
+        //controller.Move(move * speed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
         //gameObject.transform.Rotate(0,cameraInput.x,0);
         //Debug.Log(gameObject.transform.rotation);
+
+        Vector3 finalMove = move * speed + Vector3.up * velocity.y;
+        controller.Move(finalMove * Time.deltaTime);
         sprintAntiSpam();
         
     }
