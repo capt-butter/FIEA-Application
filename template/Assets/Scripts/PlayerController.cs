@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
     bool sprintingnow;
     public float sprintlength;
     public float sprintleft;
-    
+
+
+    float xRotation;//////////
+    public Camera cam;/////////
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -102,23 +105,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        move = Vector3.ClampMagnitude(move, 1f);
-        if (move != Vector3.zero)
-        {
-            transform.forward = move;
-        }
-            
-
-        //controller.Move(move * speed * Time.deltaTime);
-
+        
+        //camera stuff
+        float camX = cameraInput.x;
+        float camY = cameraInput.y;
+        xRotation -= camY;
+        xRotation = Mathf.Clamp(xRotation, -88f,88f);
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        transform.Rotate(Vector3.up * camX);
+        //moving the character
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        controller.Move(move * speed * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-        //gameObject.transform.Rotate(0,cameraInput.x,0);
-        //Debug.Log(gameObject.transform.rotation);
 
-        Vector3 finalMove = move * speed + Vector3.up * velocity.y;
-        controller.Move(finalMove * Time.deltaTime);
         sprintAntiSpam();
         
     }

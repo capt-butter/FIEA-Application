@@ -308,6 +308,7 @@ MonoBehaviour:
   gravity: -9.8
   sprintlength: 5
   sprintleft: 5
+  cam: {fileID: 6326275494711202451}
 --- !u!114 &4256773140003698762
 MonoBehaviour:
   m_ObjectHideFlags: 0
