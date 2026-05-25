@@ -4,12 +4,15 @@ using System.Linq;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class GameStateController : MonoBehaviour
 {
     public float roundtime;
     public float timeremaining;
     bool roundactive;
+    public Slider roundtimerUI;
 
     List<GameObject> PlayerChars = new List<GameObject>();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,12 +20,15 @@ public class GameStateController : MonoBehaviour
     {
         //initialtagger();
         roundactive = false;
+        roundtimerUI.maxValue = roundtime;
+        roundtimerUI.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         roundtimer();
+        roundtimerUI.value = timeremaining;
     }
 
     public void StartRound()
@@ -31,6 +37,7 @@ public class GameStateController : MonoBehaviour
         PlayerChars.Clear();
         initialtagger();
         Debug.Log("starting round");
+        roundtimerUI.enabled = true;
     }
 
 
@@ -59,7 +66,7 @@ public class GameStateController : MonoBehaviour
                 {
                     GameObject.tag = "Player";
                 }
-                
+                roundtimerUI.enabled = false;
             }
         }
     }

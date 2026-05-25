@@ -7,10 +7,12 @@ public class TaggingScript : MonoBehaviour
     bool cantag;
     public float taglockoutlength;
     float taglockouttimer;
+    //public PlayerUIController PlayerHUD;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         taglockouttimer = taglockoutlength;
+        //PlayerHUD = gameObject.GetComponent<PlayerUIController>();
     }
 
     // Update is called once per frame
