@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpHeight = 2f;
-    [SerializeField] private float gravity = -9.8f;
+    public float speed = 5f;
+    public float jumpHeight = 2f;
+    public float gravity = -9.8f;
 
 
     private CharacterController controller;
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && controller.isGrounded)
         {
+            //jumpaction();
+            //Debug.Log("attempting jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
@@ -147,5 +149,9 @@ public class PlayerController : MonoBehaviour
     public void SetRole()
     {
 
+    }
+    public void jumpaction()
+    {
+        velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     }
 }

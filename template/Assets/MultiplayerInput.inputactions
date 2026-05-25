@@ -237,7 +237,7 @@
                 {
                     "name": "",
                     "id": "59a289ba-3743-4b0c-b307-654cd62ea62b",
-                    "path": "<Mouse>/delta",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": ";WASD",
