@@ -64,7 +64,7 @@ public class PowerupPads : MonoBehaviour
         }
         if (choice == 2)//moon gravity
         {
-            script.gravity = -3f;
+            //script.gravity = -3f;
         }
         if (choice == 3)//slowzone
         {
@@ -94,7 +94,7 @@ public class PowerupPads : MonoBehaviour
         }
         if (choice == 2)//moon gravity
         {
-            script.gravity = -3f;
+            //script.gravity = -3f;
         }
         if (choice == 3)//slowzone
         {
@@ -122,7 +122,7 @@ public class PowerupPads : MonoBehaviour
         }
         if (choice == 2)//moon gravity
         {
-            script.gravity = -9.8f;
+            //script.gravity = -9.8f;
         }
         if (choice == 3)//slowzone
         {

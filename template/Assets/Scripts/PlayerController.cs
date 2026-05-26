@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpHeight = 2f;
-    public float gravity = -9.8f;
+    [SerializeField] private float gravity = -9.8f;
 
 
     private CharacterController controller;
@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("attempting jump");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+        
     }
 
     public void SprintTimeout(InputAction.CallbackContext context)
@@ -107,7 +108,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bool groundedPlayer = controller.isGrounded;
+
+        if (groundedPlayer)
+        {
+            // Slight downward velocity to keep grounded stable
+            if (velocity.y < -2f)
+                velocity.y = -2f;
+        }
         //camera stuff
         float camX = cameraInput.x;
         float camY = cameraInput.y;
@@ -116,12 +124,14 @@ public class PlayerController : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         transform.Rotate(Vector3.up * camX);
         //moving the character
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        velocity.y += gravity * Time.deltaTime;//
+        controller.Move(velocity * Time.deltaTime);
+        //
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y ;
         controller.Move(move * speed * Time.deltaTime);
-        velocity.y += gravity * Time.deltaTime;
+        
 
         sprintAntiSpam();
-        
     }
     void sprintAntiSpam()
     {
