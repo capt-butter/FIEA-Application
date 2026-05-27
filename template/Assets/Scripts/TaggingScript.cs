@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,11 @@ public class TaggingScript : MonoBehaviour
     bool cantag;
     public float taglockoutlength;
     float taglockouttimer;
+
+    public Material starter;
+    public Material tagger;
+    public TMP_Text statustext;
+
     //public PlayerUIController PlayerHUD;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +45,8 @@ public class TaggingScript : MonoBehaviour
                     {
                         TaggedPlayer.TaggerChange();
                         gameObject.tag = "Not It";
+                        gameObject.GetComponent<MeshRenderer>().material = starter;
+                        statustext.text = "runner";
                     }
                     else
                     {
@@ -70,5 +78,7 @@ public class TaggingScript : MonoBehaviour
     public void TaggerChange()
     {
         gameObject.tag = "CurrentTagger";
+        statustext.text = "tagger";
+        gameObject.GetComponent<MeshRenderer>().material = tagger;
     }
 }

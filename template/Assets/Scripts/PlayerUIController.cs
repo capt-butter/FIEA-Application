@@ -15,14 +15,14 @@ public class PlayerUIController : MonoBehaviour
     {
         playerController = GetComponent<PlayerController>();
         PlayerHUD = GetComponentInChildren<Canvas>();
-        playerstatus.SetText (gameObject.name);
+        //playerstatus.SetText (gameObject.name);
         sprintbar.maxValue = playerController.sprintlength;
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerstatus.SetText(gameObject.tag);
+        //playerstatus.SetText(gameObject.tag);
         sprintbar.value = playerController.sprintleft;
     }
 

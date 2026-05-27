@@ -1,4 +1,4 @@
-using Unity.ProjectAuditor.Editor;
+//using Unity.ProjectAuditor.Editor;
 using UnityEngine;
 
 public class PowerupPads : MonoBehaviour
